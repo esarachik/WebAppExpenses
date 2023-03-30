@@ -5,9 +5,10 @@ import Home from './Home.vue'
 import MantenimientoMonedas from './MantenimientoMonedas.vue'
 import MantenimientoCategorias from './MantenimientoCategorias.vue'
 import router from './router';
+import { createPinia } from 'pinia'
 
 const app = createApp(App)
-
+const pinia = createPinia()
 
 app
 .component('home', Home)
@@ -15,4 +16,6 @@ app
 .component('mantenimiento-categorias', MantenimientoCategorias)
 .component('mantenimiento-monedas', MantenimientoMonedas)
 
-app.use(router).mount("#app")
+app.use(router)
+app.use(pinia)
+app.mount("#app")

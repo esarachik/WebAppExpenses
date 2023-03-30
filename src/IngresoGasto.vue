@@ -9,7 +9,7 @@
         <div class="form-group">
           <label for="categoria">Categoría:</label>
           <select class="form-control" id="categoria" v-model="categoria">
-            <option v-for="categoria in categorias" :key="categoria">{{ categoria }}</option>
+            <option v-for="categoria in categoriesStore.categories" :key="categoria">{{ categoria }}</option>
           </select>
         </div>
         <div class="form-group">
@@ -24,15 +24,20 @@
   </template>
   
   <script>
+  import { mapStores } from 'pinia'
+  import { useCategoriesStore } from './stores/useCategoriesStore.js'
+
   export default {
     data() {
       return {
         monto: 0,
         categoria: '',
         moneda: '',
-        categorias: ['Comida', 'Transporte', 'Entretenimiento'],
         monedas: ['USD', 'EUR', 'ARS']
       }
+    },
+    computed: {
+      ...mapStores(useCategoriesStore)
     },
     methods: {
       guardarGasto() {
