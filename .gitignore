@@ -2,4 +2,5 @@
 /BackEnd/dist/
 /Web/node_modules/ 
 /Web/dist/
+/Web/.parcel-cache
 
