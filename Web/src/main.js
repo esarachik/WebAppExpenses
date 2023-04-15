@@ -1,10 +1,10 @@
 import { createApp, Vue } from 'vue';
 import App from './App.vue';
-import IngresoGasto from './IngresoGasto.vue'
-import Home from './Home.vue'
-import MantenimientoMonedas from './MantenimientoMonedas.vue'
-import MantenimientoCategorias from './MantenimientoCategorias.vue'
-import SideBar from './Sidebar.vue'
+import IngresoGasto from './pages/IngresoGasto.vue'
+import Home from './pages/Home.vue'
+import MantenimientoMonedas from './pages/MantenimientoMonedas.vue'
+import MantenimientoCategorias from './pages/MantenimientoCategorias.vue'
+import SideBar from './pages/Sidebar.vue'
 import router from './router';
 import { createPinia } from 'pinia'
 

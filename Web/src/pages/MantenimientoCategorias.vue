@@ -20,7 +20,7 @@
 
 <script>
 import { mapStores } from 'pinia'
-import { useCategoriesStore } from './stores/useCategoriesStore.js'
+import { useCategoriesStore } from '../stores/useCategoriesStore.js'
 
 export default {
   data() {

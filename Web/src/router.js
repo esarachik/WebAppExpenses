@@ -1,14 +1,11 @@
 import { createRouter, createWebHistory } from 'vue-router';
-import IngresoGasto from './IngresoGasto.vue';
-import Home from './Home.vue'
-import MantenimientoCategorias from './MantenimientoCategorias.vue';
-import MantenimientoMonedas from './MantenimientoMonedas.vue';
+import IngresoGasto from './pages/IngresoGasto.vue';
+import Home from './pages/Home.vue'
+import MantenimientoCategorias from './pages/MantenimientoCategorias.vue';
+import MantenimientoMonedas from './pages/MantenimientoMonedas.vue';
 
 const routes = [
-  // {
-  //   path: '/',
-  //   redirect: '/ingreso-gasto'
-  // },
+ 
   {
     path: '/',
     component: Home
