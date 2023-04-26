@@ -1,6 +1,6 @@
 
 const mongoose = require("mongoose")
-const userSchema = mongoose.Schema({
+const transactionSchema = mongoose.Schema({
     date: {
         type: Date,
         required: true
@@ -32,4 +32,4 @@ const userSchema = mongoose.Schema({
 
 });
 
-module.exports = mongoose.model('transaction', userSchema)
+module.exports = mongoose.model('transaction', transactionSchema)

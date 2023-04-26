@@ -21,7 +21,8 @@ mongoose.connect(process.env.MONGODB_URI)
     excelImporter.read().then(transactions => {
             transactions.forEach(element => {
             var transaction = transactionSchema(element)
-            transactionHelper.SaveTransaction(transaction)
+            //commented to avoid import
+          //  transactionHelper.SaveTransaction(transaction)
         });
     })
 })

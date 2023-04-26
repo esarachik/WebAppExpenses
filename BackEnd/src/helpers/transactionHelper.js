@@ -13,13 +13,13 @@ module.exports.Maptransactions = function (inputRecords) {
             Income} = element
 
         outputRecords.push({
-            Date :Date ,
-            PaymentMethod :PaymentMethod ,
-            Category :Category ,
-            Description :Description ,
-            Currency :Currency ,
-            Amount :(Income) ? Income : Outcome,
-            IsIncome :(Income) ? true : false,
+            date :Date ,
+            paymentMethod :PaymentMethod ,
+            category :Category ,
+            description :Description ,
+            currency :Currency ,
+            amount :(Income) ? Income : Outcome,
+            isIncome :(Income) ? true : false,
         })
     });
     
