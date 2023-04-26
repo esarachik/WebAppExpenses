@@ -6,25 +6,17 @@
         "name": "BACK END",
         "type": "node",
         "request": "launch",
-        "program": "${workspaceFolder}/example/src/index.js",
+        "program": "${workspaceFolder}/backend/src/index.js",
         "cwd": "${workspaceFolder}",
         "args": [],
         "runtimeArgs": ["--inspect"],
-        "env": {},
+        "envFile": "${workspaceFolder}/backend/.env",
+        "env": {
+          
+          },
         "sourceMaps": false,
-        "outFiles": []
-      },
-      {
-        "name": "Launch app.js",
-        "type": "node",
-        "request": "launch",
-        "program": "${workspaceFolder}/exmaple/index.mjs",
-        "cwd": "${workspaceFolder}",
-        "args": [],
-        "runtimeArgs": ["--inspect"],
-        "env": {},
-        "sourceMaps": false,
-        "outFiles": []
-      }
+        "outFiles": [],
+        
+      }     
     ]
   }

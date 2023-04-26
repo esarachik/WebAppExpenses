@@ -14,7 +14,93 @@
     </div>
   </div>
 
-  
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6 d-flex justify-content-center">
+        <h6>
+          Ingreso
+        </h6>
+      </div>
+      <div class="col-md-6 d-flex justify-content-center">
+        <h6>
+          Egreso
+        </h6>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-3 d-flex justify-content-center">
+        <div>
+          <h6>
+            Pesos
+          </h6>
+          <h4 class="border p-3">
+            $ 13.000
+          </h4>
+        </div>
+      </div>
+      <div class="col-md-3 d-flex justify-content-center">
+        <div>
+          <h6>
+            Dolares
+          </h6>
+          <h4 class="border p-3">
+            $ 5.000
+          </h4>
+        </div>
+      </div>
+      <div class="col-md-3 d-flex justify-content-center">
+        <div>
+          <h6>
+            Pesos
+          </h6>
+          <h4 class="border p-3">
+            $ 56.000
+          </h4>
+        </div>
+      </div>
+      <div class="col-md-3 d-flex justify-content-center">
+        <div>
+          <h6>
+            Dolares
+          </h6>
+          <h4 class="border p-3">
+            $ 90.000
+          </h4>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-3 d-flex justify-content-center">
+        <div>
+          <div class="card">
+            <Line :data="data" :options="options" />
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3 d-flex justify-content-center">
+        <div>
+          <div class="card">
+
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3 d-flex justify-content-center">
+        <div>
+          <div class="card">
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3 d-flex justify-content-center">
+        <div>
+          <div class="card">
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
 
 
   <h2>Section title</h2>
@@ -149,3 +235,9 @@
  
 
 
+<script>
+
+
+
+
+</script>

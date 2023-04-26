@@ -40,14 +40,14 @@ const schema = {
     }
 }
 
-module.exports.read = function()
-{
-    readXlsxFile('./src/example.xlsx', { schema }).then(({ rows, errors }) => {
-        const transactions = transactionHelper.Maptransactions(rows)
-        console.log(transactions);
-        transactions.forEach(element => {
-            
-        });
-    });
-     
-}
+module.exports.read = async function() {
+    try {
+      const { rows, errors } = await readXlsxFile('./backend/src/example.xlsx', { schema });
+      const transactions = transactionHelper.Maptransactions(rows);
+      return transactions;
+    } catch (error) {
+      // Manejar cualquier error que ocurra durante la lectura del archivo
+      console.error(error);
+      return null;
+    }
+  };

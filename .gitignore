@@ -1,5 +1,6 @@
 /BackEnd/node_modules/ 
 /BackEnd/dist/
+/Backend/.env
 /Web/node_modules/ 
 /Web/dist/
 /Web/.parcel-cache

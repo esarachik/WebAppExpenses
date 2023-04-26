@@ -1,3 +1,5 @@
+const transactionSchema = require('../models/transaction')
+
 module.exports.Maptransactions = function (inputRecords) {
     let outputRecords = []
 
@@ -20,8 +22,18 @@ module.exports.Maptransactions = function (inputRecords) {
             IsIncome :(Income) ? true : false,
         })
     });
-
-return outputRecords
- 
+    
+    return outputRecords 
 }
 
+module.exports.GetAllTransactions = function(){
+    transactionSchema.find()
+}
+
+module.exports.GetTransactionById = function(id){
+    transactionSchema.findById(id)
+}
+
+module.exports.SaveTransaction = function(transaction){
+    transaction.save()
+}

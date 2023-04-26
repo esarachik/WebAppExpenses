@@ -1,5 +1,5 @@
 <template>
-  <div>      
+  <div>
     <h1 class="display-5 fw-bold">Mantenimiento de categorías</h1>
     <form>
       <div class="form-group">
@@ -14,35 +14,8 @@
       </li>
     </ul>
   </div>
-</template>
-  
+</template> 
 
-
-<script>
-import { mapStores } from 'pinia'
-import { useCategoriesStore } from '../stores/useCategoriesStore.js'
-
-export default {
-  data() {
-    return {
-      nuevaCategoria: '',
-    }
-  },
-  computed: {
-    ...mapStores(useCategoriesStore)
-  },
-  methods: {
-    agregarCategoria() {
-      if (this.nuevaCategoria.trim() !== '') {
-        this.categoriesStore.addCategory(this.nuevaCategoria.trim())
-        this.nuevaCategoria = ''
-      }
-    },
-    // eliminarCategoria(index) {
-    //   this.categorias.splice(index, 1)
-    // }
-  }
-}
-</script>
+<script src="./MantenimientoCategorias.ts"></script>
 
 
