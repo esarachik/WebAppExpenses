@@ -17,6 +17,18 @@
         "sourceMaps": false,
         "outFiles": [],
         
-      }     
+      },
+      {
+        "type": "chrome",
+        "request": "launch",
+        "name": "Launch Chrome debugger",
+        "url": "http://localhost:1234",
+        "webRoot": "${workspaceFolder}",
+        "breakOnLoad": true,
+        "sourceMapPathOverrides": {
+          "../*": "${webRoot}/*"
+        }
+      }
+     
     ]
   }

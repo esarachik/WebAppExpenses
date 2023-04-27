@@ -3,6 +3,7 @@ const mongoose = require('mongoose');
 require('dotenv').config();
 const userRoutes = require("./router/user")
 const transactionRoutes = require("./router/transaction")
+const cors = require('cors');
 
 const excelImporter = require("../src/helpers/excelImporter")
 const transactionHelper = require("../src/helpers/transactionHelper")
@@ -13,6 +14,7 @@ const port = process.env.PORT || 9000;
  
 //middleware
 app.use(express.json())
+app.use(cors());
 app.use('/api',userRoutes)
 app.use('/api',transactionRoutes)
 

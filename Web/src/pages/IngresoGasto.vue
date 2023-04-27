@@ -23,5 +23,5 @@
   </div>
 </template>
   
-<script src="./IngresoGasto.ts"></script>
+<script src="./IngresoGasto.js"></script>
   

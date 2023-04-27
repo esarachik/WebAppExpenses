@@ -42,7 +42,7 @@ const schema = {
 
 module.exports.read = async function() {
     try {
-      const { rows, errors } = await readXlsxFile('./backend/src/example.xlsx', { schema });
+      const { rows, errors } = await readXlsxFile('./src/example.xlsx', { schema });
       const transactions = transactionHelper.Maptransactions(rows);
       return transactions;
     } catch (error) {

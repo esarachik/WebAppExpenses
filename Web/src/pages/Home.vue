@@ -233,11 +233,4 @@
   </div>
 </template>
  
-
-
-<script>
-
-
-
-
-</script>
+<script src="./Home.ts"></script>

@@ -16,6 +16,6 @@
   </div>
 </template> 
 
-<script src="./MantenimientoCategorias.ts"></script>
+<script src="./MantenimientoCategorias.js"></script>
 
 
