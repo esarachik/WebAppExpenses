@@ -27,13 +27,13 @@ module.exports.Maptransactions = function (inputRecords) {
 }
 
 module.exports.GetAllTransactions = function(){
-    transactionSchema.find()
+    return transactionSchema.find()
 }
 
 module.exports.GetTransactionById = function(id){
-    transactionSchema.findById(id)
+   return transactionSchema.findById(id)
 }
 
 module.exports.SaveTransaction = function(transaction){
-    transaction.save()
+    return transaction.save()
 }
