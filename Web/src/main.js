@@ -1,26 +1,22 @@
 import { createApp, Vue } from 'vue';
-import App from './App.vue';
-import IngresoGasto from './pages/IngresoGasto.vue'
-import Home from './pages/Home.vue'
-import MantenimientoMonedas from './pages/MantenimientoMonedas.vue'
-import MantenimientoCategorias from './pages/MantenimientoCategorias.vue'
-import SideBar from './pages/Sidebar.vue'
-import router from './router';
+import App from "./App.vue";
+import router from "./router";
+import SideBar from "../src/views/SideBar.vue"
+import vueFeather from "vue-feather"
 import { createPinia } from 'pinia'
 
-const app = createApp(App)
-const pinia = createPinia()
 
-app
-.component('home', Home)
-.component('ingreso-gasto', IngresoGasto)
-.component('mantenimiento-categorias', MantenimientoCategorias)
-.component('mantenimiento-monedas', MantenimientoMonedas)
-.component('side-bar',SideBar)
+const app = createApp(App)
 
 app.use(router)
-app.use(pinia)
-app.mount("#app")
+app
+.component('side-bar',SideBar)
+.component('vue-feather',vueFeather)
 
-feather.replace({ 'aria-hidden': 'true' })
+const pinia = createPinia()
+app
+.use(pinia)
+
+
+app.mount("#app")
 

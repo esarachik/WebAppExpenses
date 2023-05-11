@@ -3,7 +3,7 @@ const transactionSchema = require('../models/transaction')
 module.exports.Maptransactions = function (inputRecords) {
     let outputRecords = []
 
-    inputRecords.forEach(element => {
+    inputRecords.forEach((element,index) => {
         const {Date,          
             PaymentMethod,
             Category,
@@ -13,6 +13,7 @@ module.exports.Maptransactions = function (inputRecords) {
             Income} = element
 
         outputRecords.push({
+            id: ++index,
             date :Date ,
             paymentMethod :PaymentMethod ,
             category :Category ,
@@ -28,6 +29,15 @@ module.exports.Maptransactions = function (inputRecords) {
 
 module.exports.GetAllTransactions = function(){
     return transactionSchema.find()
+}
+
+module.exports.GetTransactionsFromTo = function(from,to){
+    return transactionSchema.find({
+        date: {
+            $gte: from, 
+            $lt: to
+        }
+    })
 }
 
 module.exports.GetTransactionById = function(id){

@@ -1,6 +1,10 @@
 
 const mongoose = require("mongoose")
 const transactionSchema = mongoose.Schema({
+    id:{
+        type: Number,
+        required: true
+    },
     date: {
         type: Date,
         required: true

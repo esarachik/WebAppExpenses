@@ -26,7 +26,7 @@ mongoose.connect(process.env.MONGODB_URI)
             transactions.forEach(element => {
             var transaction = transactionSchema(element)
             //commented to avoid import
-          //  transactionHelper.SaveTransaction(transaction)
+            //transactionHelper.SaveTransaction(transaction)
         });
     })
 })
