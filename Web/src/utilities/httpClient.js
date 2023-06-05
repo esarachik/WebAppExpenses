@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const httpClient = axios.create({
-  // Configuración global de axios, si es necesario
+  // Global Config
 });
 
 export function get(url, params) {
