@@ -1,5 +1,4 @@
 const express = require('express')
-const transactionSchema = require('../models/transaction')
 const transactionHelper = require('../helpers/transactionHelper')
 const moment = require('moment')
 
@@ -19,8 +18,15 @@ router.get('/transactions/:year(\\d{4}):month(\\d{2})', (req, res) => {
         const from = moment.utc(Date.UTC(+year, +month - 1, 1));
         const to =  moment.utc(Date.UTC(+year, +month, 1));
         transactionHelper.GetTransactionsFromTo( from,to)
-            .then((data) => res.json(data))
-            .catch((error) => res.json({ message: error }))
+            .then((data) =>
+            {
+                res.json(data)
+            })
+            .catch((error) =>             
+            {
+                res.json({ message: error })
+            }
+            )
     } catch(error) { 
         res
             .status(500)

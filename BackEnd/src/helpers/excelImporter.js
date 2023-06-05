@@ -37,14 +37,19 @@ const schema = {
     'Egreso': {
         prop: 'Outcome',
         type: Number
+    },
+    'AutoIncrementId':
+    {
+        prop: 'AutoIncrementId',
+        type: Number
     }
 }
 
 module.exports.read = async function() {
     try {
-      const { rows, errors } = await readXlsxFile('./src/example.xlsx', { schema });
+      const { rows } = await readXlsxFile('./src/example.xlsx', { schema })
+
       const transactions = transactionHelper.Maptransactions(rows);
-      console.log('import finished');
       return transactions;
     } catch (error) {
       // Manejar cualquier error que ocurra durante la lectura del archivo

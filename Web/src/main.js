@@ -6,17 +6,13 @@ import vueFeather from "vue-feather"
 import { createPinia } from 'pinia'
 
 
+const pinia = createPinia()
 const app = createApp(App)
 
 app.use(router)
-app
-.component('side-bar',SideBar)
-.component('vue-feather',vueFeather)
+app.component('side-bar',SideBar)
+app.component('vue-feather',vueFeather)
 
-const pinia = createPinia()
-app
-.use(pinia)
-
-
+app.use(pinia)
 app.mount("#app")
 

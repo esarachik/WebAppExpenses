@@ -1,29 +1,56 @@
 const transactionSchema = require('../models/transaction')
 
-module.exports.Maptransactions = function (inputRecords) {
+module.exports.Maptransactions = function (inputRecords, isImport) {
     let outputRecords = []
 
-    inputRecords.forEach((element,index) => {
-        const {Date,          
-            PaymentMethod,
-            Category,
-            Description,
-            Currency,
-            Outcome,
-            Income} = element
-
-        outputRecords.push({
-            id: ++index,
-            date :Date ,
-            paymentMethod :PaymentMethod ,
-            category :Category ,
-            description :Description ,
-            currency :Currency ,
-            amount :(Income) ? Income : Outcome,
-            isIncome :(Income) ? true : false,
-        })
-    });
-    
+    if(isImport)
+    {      
+        inputRecords.forEach((element,index) => {
+            const {Date,          
+                PaymentMethod,
+                Category,
+                Description,
+                Currency,
+                Outcome,
+                Income,
+                AutoIncrementId
+            } = element
+                    
+            outputRecords.push({            
+                date :Date ,
+                paymentMethod :PaymentMethod ,
+                category :Category ,
+                description :Description ,
+                currency :Currency ,
+                amount :(Income) ? Income : Outcome,
+                isIncome :(Income) ? true : false,
+                autoIncrementId: AutoIncrementId 
+                
+            })
+        });
+    }else{
+        inputRecords.forEach((element,index) => {
+            const {Date,          
+                PaymentMethod,
+                Category,
+                Description,
+                Currency,
+                Outcome,
+                Income
+            } = element
+           
+            outputRecords.push({            
+                date :Date ,
+                paymentMethod :PaymentMethod ,
+                category :Category ,
+                description :Description ,
+                currency :Currency ,
+                amount :(Income) ? Income : Outcome,
+                isIncome :(Income) ? true : false                                
+            })
+        });
+    }
+        
     return outputRecords 
 }
 
@@ -32,11 +59,15 @@ module.exports.GetAllTransactions = function(){
 }
 
 module.exports.GetTransactionsFromTo = function(from,to){
-    return transactionSchema.find({
+    return transactionSchema
+    .find({
         date: {
             $gte: from, 
             $lt: to
         }
+    })
+    .sort({
+        autoIncrementId:1
     })
 }
 
@@ -45,5 +76,12 @@ module.exports.GetTransactionById = function(id){
 }
 
 module.exports.SaveTransaction = function(transaction){
-    return transaction.save()
+    try{
+      return transaction.save()
+    }
+    catch(Error)
+    {
+        console.log(Error)
+        console.log(transaction)
+    }
 }

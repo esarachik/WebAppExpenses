@@ -84,7 +84,7 @@
   <div class="row">
     <h6 class="col-md-2 pt-2">Movimientos</h6>
     <div class="col-md-2">
-      <date-picker @change="onChangeDatePicker" v-model:value="monthYear" type="month" placeholder="Elegir Mes"></date-picker>
+      <date-picker @change="onChangeDatePicker" v-model:value="monthYear" type="month" placeholder="Elegir Mes"></date-picker> 
     </div>
   </div>
 
@@ -98,6 +98,7 @@
         <th>Currency</th>
         <th>Amount</th>
         <th>Is Income</th>
+      <th>autoIncrementId</th>
       </tr>
     </thead>
     <tbody>
@@ -109,60 +110,10 @@
         <td>{{ item.currency }}</td>
         <td>{{ item.amount }}</td>
         <td>{{ item.isIncome }}</td>
+        <td>{{ item.autoIncrementId }}</td>
       </tr>
     </tbody>
-  </table>
+  </table>  
 </template>
- 
-<script >
-import DatePicker from 'vue-datepicker-next';
-import 'vue-datepicker-next/index.css';
-import 'vue-datepicker-next/locale/es.es';
-// https://github.com/mengxiong10/vue-datepicker-next
 
-import axios from 'axios'
-
-export default {
-  name: 'Home',
-  components: {
-    DatePicker
-  },
-  data() {
-    return {
-      transactions: [],
-      monthYear: new Date(),
-    };
-  },
-  created() {
-    axios.get(`http://localhost:9000/api/transactions/${this.year}${this.month}`)
-      .then(response => {
-        this.transactions = response.data
-
-      })
-      .catch(error => {
-        console.error('Error al obtener datos:', error);
-      });
-  },
-  methods:{
-    onChangeDatePicker(newDate)
-    {
-      axios.get(`http://localhost:9000/api/transactions/${this.year}${this.month}`)
-      .then(response => {
-        this.transactions = response.data
-
-      })
-      .catch(error => {
-        console.error('Error al obtener datos:', error);
-      });
-    }
-  },
-  computed: {
-    month() {
-      return (this.monthYear) ? String(this.monthYear.getMonth()+1 ).padStart(2, '0'): null
-    },
-    year() {
-      return (this.monthYear) ? this.monthYear.getFullYear() : null
-    },
-  }
-}
-</script>
+<script src="./Home.js"></script>

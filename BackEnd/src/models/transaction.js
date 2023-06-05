@@ -1,9 +1,11 @@
 
 const mongoose = require("mongoose")
+const counter = require("./counter")
+
 const transactionSchema = mongoose.Schema({
-    id:{
+    autoIncrementId: {
         type: Number,
-        required: true
+        unique: true
     },
     date: {
         type: Date,
@@ -27,7 +29,7 @@ const transactionSchema = mongoose.Schema({
     },
     amount: {
         type: Number,
-        required: true
+        required: false
     },
     isIncome: {
         type: Boolean,
@@ -35,5 +37,22 @@ const transactionSchema = mongoose.Schema({
     }
 
 });
+
+
+// transactionSchema.pre('save', async function (next) {
+//     try {
+//         const doc = this;
+//         await counter.findOneAndUpdate(
+//             { _id: 'transactionSchema' },
+//             { $inc: { seq: 1 } },
+//             { new: true, upsert: true })
+//         .then((counter) => {
+//             doc.autoIncrementId = counter.seq;
+//             next();
+//         })
+//     } catch (error) {
+//         next(error);
+//     }
+// });
 
 module.exports = mongoose.model('transaction', transactionSchema)

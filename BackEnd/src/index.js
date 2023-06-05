@@ -1,12 +1,13 @@
 const express = require('express');
 const mongoose = require('mongoose');
 require('dotenv').config();
-const userRoutes = require("./router/user")
-const transactionRoutes = require("./router/transaction")
 const cors = require('cors');
 
+const userRoutes = require("./router/user")
+const transactionRoutes = require("./router/transaction")
+const categoryRoutes = require("./router/category")
+
 const excelImporter = require("../src/helpers/excelImporter")
-const transactionHelper = require("../src/helpers/transactionHelper")
 const transactionSchema = require('../src/models/transaction')
 
 const app = express();
@@ -17,17 +18,20 @@ app.use(express.json())
 app.use(cors());
 app.use('/api',userRoutes)
 app.use('/api',transactionRoutes)
+app.use('/api',categoryRoutes)
 
 mongoose.connect(process.env.MONGODB_URI)
 .then(() => {
     console.log('Connected to the DB ATLAS')
 
-    excelImporter.read().then(transactions => {
+    excelImporter
+    .read()
+    .then(transactions =>   {
             transactions.forEach(element => {
-            var transaction = transactionSchema(element)
-            //commented to avoid import
-            //transactionHelper.SaveTransaction(transaction)
-        });
+                var transaction = transactionSchema(element)
+                //commented to avoid import
+                //transactionHelper.SaveTransaction(transaction)              
+            });           
     })
 })
 .catch((error)=> console.error(error));
