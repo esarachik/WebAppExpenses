@@ -1,27 +1,24 @@
 import { defineStore } from 'pinia'
-import { get } from '../utilities/httpClient'
+import { get, post } from '../utilities/httpClient'
 
 export const useCategoriesStore = defineStore('categories', {
   state: () => ({
-    categories: [],
-    url: "http://localhost:9000/api/categories"
+    categories: [] as any,
+    url: "http://localhost:9000/api/categories" as string
   }),
   actions: {
-    addCategory(category) {
+    addCategory(category:any) {
       this.categories.push(category)
+      //post(this.url, )
     },
     async fetchCategories() {
-      get(this.url)
-        .then((response) => {          
+      get(this.url,'')
+        .then((response:any) => {          
             this.categories = response.data        
         })
-        .catch(error => {
+        .catch((error: any) => {
           console.error('Error al realizar la solicitud:', error)
         })
     }
   }
 })
-
-
-
-

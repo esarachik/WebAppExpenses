@@ -116,4 +116,4 @@
   </table>  
 </template>
 
-<script src="./Home.js"></script>
+<script src="./Home.ts"></script>

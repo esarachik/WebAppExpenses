@@ -17,6 +17,14 @@ module.exports = {
   module: {
     rules: [
       {
+        test: /\.tsx?$/,
+        loader: 'ts-loader',
+        exclude: /node_modules/,
+        options: {
+          appendTsSuffixTo: [/\.vue$/],
+        },
+      },
+      {
         test: /\.js$/,
         exclude: /node_modules/,
         use: {
@@ -72,9 +80,10 @@ module.exports = {
   ],
   resolve: {
     alias: {
+      '@': path.resolve(__dirname, 'src'),
       'vue': '@vue/runtime-dom'
     },
-    extensions: ["*", ".js", ".vue", ".json"],
+    extensions: ["*", '.ts', ".js", ".vue", ".json"],
   },
   optimization: {
     moduleIds: "deterministic",
