@@ -16,11 +16,13 @@ export default defineComponent({
     ...mapStores(useCategoriesStore)
   },
   methods: {
-    agregarCategoria() {
-      if (this.nuevaCategoria.trim() !== '') {
-        this.categoriesStore.addCategory(this.nuevaCategoria.trim())
-        this.nuevaCategoria = ''
+    agregarCategoria() {      
+      if (this.nuevaCategoria.trim() === ''){
+        alert("Ingrese Nombre Categoria")
+        return;
       }
+      this.categoriesStore.addCategory(this.nuevaCategoria.trim())
+      this.nuevaCategoria = ''
     },
     // eliminarCategoria(index) {
     //   this.categorias.splice(index, 1)
